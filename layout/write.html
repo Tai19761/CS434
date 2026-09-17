@@ -1,0 +1,92 @@
+    <div class="write-page" style="max-width:660px;margin:40px auto;padding:28px;background:#faf8f4;border-radius:20px;position:relative;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+    <div class="write-header" style="margin:0;">Đăng bài mới</div>
+    <button onclick="showPage('home')" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink3);padding:4px 8px;">✕</button>
+</div>
+                <div class="write-sub">Chia sẻ công thức, review quán hoặc đánh dấu địa điểm yêu thích</div>
+                <div class="write-type-grid">
+                    <div class="write-type-btn active" onclick="selectType(this,'recipe')"><div class="write-type-icon">📋</div><div class="write-type-label">Công thức</div></div>
+                    <div class="write-type-btn" onclick="selectType(this,'photo')"><div class="write-type-icon">📸</div><div class="write-type-label">Ảnh/Bài viết</div></div>
+                    <div class="write-type-btn" onclick="selectType(this,'review')"><div class="write-type-icon">⭐</div><div class="write-type-label">Review quán</div></div>
+                    <div class="write-type-btn" onclick="selectType(this,'location')"><div class="write-type-icon">📍</div><div class="write-type-label">Địa điểm</div></div>
+                </div>
+
+                <!-- FORM: Công thức / Ảnh / Địa điểm -->
+                <div class="write-form" id="write-form-recipe">
+                    <div><div class="write-label">Tiêu đề *</div><input id="wr-title" class="write-input" placeholder="Ví dụ: Bún bò Huế chuẩn vị mẹ nấu" /></div>
+                    <div><div class="write-label">Mô tả / Nội dung</div><textarea id="wr-content" class="write-textarea" placeholder="Chia sẻ đôi điều về món ăn hay địa điểm này…"></textarea></div>
+                    <div id="wr-recipe-extra">
+                        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+                            <div><div class="write-label">Thời gian nấu</div><input id="wr-cook-time" class="write-input" placeholder="Ví dụ: 1 giờ" /></div>
+                            <div><div class="write-label">Khẩu phần</div><input id="wr-servings" class="write-input" placeholder="Số người" /></div>
+                            <div><div class="write-label">Độ khó</div>
+                                <select id="wr-difficulty" class="write-input">
+                                    <option value="Dễ">Dễ</option>
+                                    <option value="Trung bình">Trung bình</option>
+                                    <option value="Khó">Khó</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div><div class="write-label">Nguyên liệu <span style="font-size:11px;color:var(--ink4);">(mỗi dòng 1 nguyên liệu)</span></div><textarea id="wr-ingredients" class="write-textarea" placeholder="500g thịt bò&#10;2 cây sả…" style="min-height:80px;"></textarea></div>
+                        <div><div class="write-label">Các bước thực hiện <span style="font-size:11px;color:var(--ink4);">(mỗi dòng 1 bước)</span></div><textarea id="wr-steps" class="write-textarea" placeholder="Hầm xương 3 tiếng…&#10;Ướp thịt 30 phút…" style="min-height:120px;"></textarea></div>
+                    </div>
+                    <div id="wr-location-extra" style="display:none;">
+                        <div><div class="write-label">Tên địa điểm *</div><input id="wr-loc-name" class="write-input" placeholder="Tên quán, địa điểm…" /></div>
+                        <div style="margin-top:10px;"><div class="write-label">Địa chỉ</div><input id="wr-loc-addr" class="write-input" placeholder="Số nhà, đường, quận, thành phố…" /></div>
+                    </div>
+                    <div>
+                        <div class="write-label">Ảnh <span style="font-size:11px;color:var(--ink4);">(tùy chọn)</span></div>
+                        <input type="file" id="wr-image-file" accept="image/*" style="display:none;" onchange="previewWriteImage(this,'wr-preview')" />
+                        <div onclick="document.getElementById('wr-image-file').click()"
+                             style="border:2px dashed #d4b8a0;border-radius:12px;padding:24px;text-align:center;cursor:pointer;color:#a07850;font-size:13px;background:#fdf6f0;">
+                            📸 Nhấn để chọn ảnh từ máy
+                        </div>
+                        <img id="wr-preview" style="display:none;width:100%;border-radius:10px;margin-top:8px;max-height:260px;object-fit:cover;" />
+                    </div>
+                    <div id="wr-submit-status" style="display:none;padding:10px 14px;border-radius:10px;font-size:13px;"></div>
+                    <div class="write-submit-row">
+                        <button class="btn-cancel" onclick="showPage('home')">Huỷ</button>
+                        <button class="btn-submit" id="wr-submit-btn" onclick="submitPost()">Đăng bài ✓</button>
+                    </div>
+                </div>
+
+                <!-- FORM: Review quán -->
+                <div class="write-form" id="write-form-review" style="display:none;">
+                    <div><div class="write-label">Tên quán *</div><input id="rv-name" class="write-input" placeholder="Tên quán ăn, nhà hàng…" /></div>
+                    <div><div class="write-label">Địa chỉ quán *</div><input id="rv-address" class="write-input" placeholder="Số nhà, đường, quận, thành phố…" /></div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                        <div><div class="write-label">Thành phố</div><input id="rv-city" class="write-input" placeholder="TP.HCM, Hà Nội…" /></div>
+                        <div><div class="write-label">Khoảng giá</div>
+                            <select id="rv-price" class="write-input">
+                                <option value="">-- Chọn --</option>
+                                <option value="&lt;50k">Dưới 50k</option>
+                                <option value="50k-100k">50k – 100k</option>
+                                <option value="100k-200k">100k – 200k</option>
+                                <option value="200k+">Trên 200k</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="write-label" style="margin-bottom:6px;">Đánh giá chi tiết</div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                        <div><div style="font-size:12px;color:var(--ink3);margin-bottom:4px;">Hương vị</div><div class="star-picker" id="sp-taste" data-val="5"><span onclick="setStarGroup('sp-taste',1)">★</span><span onclick="setStarGroup('sp-taste',2)">★</span><span onclick="setStarGroup('sp-taste',3)">★</span><span onclick="setStarGroup('sp-taste',4)">★</span><span onclick="setStarGroup('sp-taste',5)">★</span></div></div>
+                        <div><div style="font-size:12px;color:var(--ink3);margin-bottom:4px;">Giá cả</div><div class="star-picker" id="sp-price" data-val="5"><span onclick="setStarGroup('sp-price',1)">★</span><span onclick="setStarGroup('sp-price',2)">★</span><span onclick="setStarGroup('sp-price',3)">★</span><span onclick="setStarGroup('sp-price',4)">★</span><span onclick="setStarGroup('sp-price',5)">★</span></div></div>
+                        <div><div style="font-size:12px;color:var(--ink3);margin-bottom:4px;">Không gian</div><div class="star-picker" id="sp-space" data-val="5"><span onclick="setStarGroup('sp-space',1)">★</span><span onclick="setStarGroup('sp-space',2)">★</span><span onclick="setStarGroup('sp-space',3)">★</span><span onclick="setStarGroup('sp-space',4)">★</span><span onclick="setStarGroup('sp-space',5)">★</span></div></div>
+                        <div><div style="font-size:12px;color:var(--ink3);margin-bottom:4px;">Phục vụ</div><div class="star-picker" id="sp-service" data-val="5"><span onclick="setStarGroup('sp-service',1)">★</span><span onclick="setStarGroup('sp-service',2)">★</span><span onclick="setStarGroup('sp-service',3)">★</span><span onclick="setStarGroup('sp-service',4)">★</span><span onclick="setStarGroup('sp-service',5)">★</span></div></div>
+                    </div>
+                    <div><div class="write-label">Nhận xét của bạn</div><textarea id="rv-content" class="write-textarea" placeholder="Chia sẻ trải nghiệm của bạn về quán này…"></textarea></div>
+                    <div>
+                        <div class="write-label">Ảnh quán <span style="font-size:11px;color:var(--ink4);">(tùy chọn)</span></div>
+                        <input type="file" id="rv-image-file" accept="image/*" style="display:none;" onchange="previewWriteImage(this,'rv-preview')" />
+                        <div onclick="document.getElementById('rv-image-file').click()"
+                             style="border:2px dashed #d4b8a0;border-radius:12px;padding:24px;text-align:center;cursor:pointer;color:#a07850;font-size:13px;background:#fdf6f0;">
+                            🏪 Nhấn để chọn ảnh quán
+                        </div>
+                        <img id="rv-preview" style="display:none;width:100%;border-radius:10px;margin-top:8px;max-height:260px;object-fit:cover;" />
+                    </div>
+                    <div id="rv-submit-status" style="display:none;padding:10px 14px;border-radius:10px;font-size:13px;"></div>
+                    <div class="write-submit-row">
+                        <button class="btn-cancel" onclick="showPage('home')">Huỷ</button>
+                        <button class="btn-submit" id="rv-submit-btn" onclick="submitReview()">Đăng review ✓</button>
+                    </div>
+                </div>
+            </div>
