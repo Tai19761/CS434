@@ -1,0 +1,37 @@
+                <div class="feed-header">
+    <div class="feed-tabs">
+    <div class="feed-tab active" data-type="foryou">Dành cho bạn</div>
+    <div class="feed-tab" data-type="following">Đang theo dõi</div>
+    <div class="feed-tab" data-type="recipe">Công thức mới</div>
+    <div class="feed-tab" data-type="review">Review nổi bật</div>
+</div>
+                </div>
+                <div class="compose-box" id="compose-box" style="display:none;">
+                    <div class="compose-avatar" id="compose-avatar-initials">NT</div>
+                    <div class="compose-input">
+                        <input placeholder="Chia sẻ công thức, review quán ăn hoặc địa điểm…" />
+                        <div class="compose-divider"></div>
+                        <div class="compose-actions">
+                            <button class="compose-btn-icon" onclick="showPage('write')">
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="10" rx="2" /><circle cx="5.5" cy="6" r="1.5" /><path d="M2 10l3-3 3 3 2-2 4 4" /></svg>
+                                Ảnh / Video
+                            </button>
+                            <button class="compose-btn-icon" onclick="showPage('write')">
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h8M4 8h6M4 12h4" /></svg>
+                                Công thức
+                            </button>
+                            <button class="compose-btn-icon" onclick="showPage('write')">
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5a5 5 0 00-5 5c0 3.75 5 8 5 8s5-4.25 5-8a5 5 0 00-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" /></svg>
+                                Địa điểm
+                            </button>
+                            <button class="compose-post" onclick="showPage('write')">Đăng</button>
+                        </div>
+                    </div>
+                </div>
+
+               <!-- Feed container – JS sẽ inject bài thật vào đây -->
+<div id="feed-container">
+    <div id="feed-loading" style="padding:40px;text-align:center;color:var(--ink3);font-size:14px;">
+        Đang tải bài viết…
+    </div>
+</div>
