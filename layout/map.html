@@ -1,0 +1,95 @@
+                <div class="map-page" style="height:100vh;">
+                    <div class="map-search-bar">
+                        <input placeholder="Tìm quán ăn, địa chỉ, loại ẩm thực…" />
+                        <button class="map-filter-btn active">Gần tôi</button>
+                        <button class="map-filter-btn">Đang mở</button>
+                        <button class="map-filter-btn">★ 4.5+</button>
+                        <button class="map-filter-btn">Giá rẻ</button>
+                    </div>
+                    <div class="map-content" style="height:calc(100vh - 57px);">
+                        <div class="map-list">
+                            <div class="map-list-header">12 quán ăn gần bạn</div>
+                            <div class="map-resto-card active">
+                                <div class="map-resto-thumb rt1">🍜</div>
+                                <div class="map-resto-info">
+                                    <div class="map-resto-name">Phở Hà Nội 1946</div>
+                                    <div class="map-resto-addr">42 Lý Thường Kiệt, Q.Hoàn Kiếm</div>
+                                    <div class="map-resto-tags"><span class="map-tag">Phở</span><span class="map-tag">Bún</span><span class="map-tag">Đang mở</span></div>
+                                    <div class="map-resto-rating"><span style="font-size:12px;color:#F4A96A;">★★★★★</span><span style="font-size:11px;color:var(--ink3);margin-left:4px;">4.8 · 320m</span></div>
+                                </div>
+                            </div>
+                            <div class="map-resto-card">
+                                <div class="map-resto-thumb rt2">🥗</div>
+                                <div class="map-resto-info">
+                                    <div class="map-resto-name">Cơm Niêu Sài Gòn</div>
+                                    <div class="map-resto-addr">78 Nguyễn Trãi, Q.1</div>
+                                    <div class="map-resto-tags"><span class="map-tag">Cơm</span><span class="map-tag">Miền Nam</span><span class="map-tag">Đang mở</span></div>
+                                    <div class="map-resto-rating"><span style="font-size:12px;color:#F4A96A;">★★★★</span><span style="font-size:11px;color:var(--ink3);margin-left:4px;">4.6 · 550m</span></div>
+                                </div>
+                            </div>
+                            <div class="map-resto-card">
+                                <div class="map-resto-thumb rt3">☕</div>
+                                <div class="map-resto-info">
+                                    <div class="map-resto-name">The Coffee House</div>
+                                    <div class="map-resto-addr">156 Pasteur, Q.3</div>
+                                    <div class="map-resto-tags"><span class="map-tag">Cà phê</span><span class="map-tag">Bánh ngọt</span></div>
+                                    <div class="map-resto-rating"><span style="font-size:12px;color:#F4A96A;">★★★★</span><span style="font-size:11px;color:var(--ink3);margin-left:4px;">4.5 · 780m</span></div>
+                                </div>
+                            </div>
+                            <div class="map-resto-card">
+                                <div class="map-resto-thumb rt4">🦐</div>
+                                <div class="map-resto-info">
+                                    <div class="map-resto-name">Hải Sản Tươi Sống Biển Đông</div>
+                                    <div class="map-resto-addr">24 Trần Phú, Q.Hải Châu</div>
+                                    <div class="map-resto-tags"><span class="map-tag">Hải sản</span><span class="map-tag">Lẩu</span></div>
+                                    <div class="map-resto-rating"><span style="font-size:12px;color:#F4A96A;">★★★★★</span><span style="font-size:11px;color:var(--ink3);margin-left:4px;">4.9 · 1.2km</span></div>
+                                </div>
+                            </div>
+                            <div class="map-resto-card">
+                                <div class="map-resto-thumb rt1">🍱</div>
+                                <div class="map-resto-info">
+                                    <div class="map-resto-name">Cơm tấm Ba Ghiền</div>
+                                    <div class="map-resto-addr">84 Đặng Văn Bi, Thủ Đức</div>
+                                    <div class="map-resto-tags"><span class="map-tag">Cơm tấm</span><span class="map-tag">Sườn</span></div>
+                                    <div class="map-resto-rating"><span style="font-size:12px;color:#F4A96A;">★★★★</span><span style="font-size:11px;color:var(--ink3);margin-left:4px;">4.7 · 1.5km</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Map view -->
+                        <div class="map-view">
+                            <svg style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:.25" viewBox="0 0 700 500" preserveAspectRatio="none">
+                                <line x1="0" y1="100" x2="700" y2="100" stroke="#0F6E56" stroke-width="1" />
+                                <line x1="0" y1="200" x2="700" y2="200" stroke="#0F6E56" stroke-width="1" />
+                                <line x1="0" y1="300" x2="700" y2="300" stroke="#0F6E56" stroke-width="1" />
+                                <line x1="0" y1="400" x2="700" y2="400" stroke="#0F6E56" stroke-width="1" />
+                                <line x1="140" y1="0" x2="140" y2="500" stroke="#0F6E56" stroke-width="1" />
+                                <line x1="280" y1="0" x2="280" y2="500" stroke="#0F6E56" stroke-width="1" />
+                                <line x1="420" y1="0" x2="420" y2="500" stroke="#0F6E56" stroke-width="1" />
+                                <line x1="560" y1="0" x2="560" y2="500" stroke="#0F6E56" stroke-width="1" />
+                            </svg>
+                            <svg style="position:absolute;top:0;left:0;width:100%;height:100%" viewBox="0 0 700 500">
+                                <g><circle cx="300" cy="220" r="20" fill="#C85A1E" opacity=".9" /><text x="300" y="226" text-anchor="middle" font-size="18">🍜</text></g>
+                                <g><circle cx="430" cy="160" r="20" fill="#2D6A4F" opacity=".9" /><text x="430" y="166" text-anchor="middle" font-size="18">🥗</text></g>
+                                <g><circle cx="200" cy="310" r="20" fill="#457B9D" opacity=".9" /><text x="200" y="316" text-anchor="middle" font-size="18">☕</text></g>
+                                <g><circle cx="520" cy="280" r="20" fill="#E76F51" opacity=".9" /><text x="520" y="286" text-anchor="middle" font-size="18">🦐</text></g>
+                                <g><circle cx="380" cy="360" r="20" fill="#BA7517" opacity=".9" /><text x="380" y="366" text-anchor="middle" font-size="18">🍱</text></g>
+                                <circle cx="360" cy="250" r="10" fill="#4361EE" opacity=".95" />
+                                <circle cx="360" cy="250" r="20" fill="#4361EE" opacity=".18" />
+                            </svg>
+                            <div class="map-popup">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                                    <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#FDEBD0,#F4A96A);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🍜</div>
+                                    <div>
+                                        <div class="map-popup-name">Phở Hà Nội 1946</div>
+                                        <div class="map-popup-addr">42 Lý Thường Kiệt · Mở đến 22:00 · ★★★★★ 4.8</div>
+                                    </div>
+                                </div>
+                                <div class="map-popup-actions">
+                                    <a class="map-popup-btn secondary" href="https://maps.google.com" target="_blank">Xem trên Maps</a>
+                                    <a class="map-popup-btn primary" href="https://maps.google.com/?q=directions" target="_blank">Chỉ đường ↗</a>
+                                    <button class="map-popup-btn secondary" onclick="showPage('reviews')" style="flex:0.7;">Review</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
